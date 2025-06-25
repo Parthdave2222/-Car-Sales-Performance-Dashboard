@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Car Sales Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff5f0;
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #ffe3d6;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #f97316;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #9a3412;
+      font-weight: 500;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .menu a:hover {
+      color: #f97316;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px;
+      flex-wrap: wrap;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .content {
+      max-width: 500px;
+    }
+
+    .content h1 {
+      font-size: 40px;
+      color: #b45309;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 17px;
+      color: #6b4c3b;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      font-size: 16px;
+      background-color: #f97316;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ea580c;
+      transform: scale(1.05);
+    }
+
+    .illustration img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease;
+    }
+
+    .illustration img:hover {
+      transform: scale(1.03) rotate(0.5deg);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1000px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+      width: 180px;
+    }
+
+    .stat-card:hover {
+      transform: scale(1.03);
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #f97316;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 15px;
+      color: #6b7280;
+    }
+
+    .intro-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #fff1e7;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-size: 17px;
+      line-height: 1.8;
+      color: #3f2d20;
+    }
+
+    .intro-section p {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffe3d6;
+      color: #6b4c3b;
+      font-size: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .main {
+        flex-direction: column;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .illustration img {
+        margin-top: 30px;
+      }
+
+      .stats {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .stat-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Car Sales Dashboard</div>
+    <div class="menu">
+      <a data-section="overview">Overview</a>
+      <a data-section="sales">Sales</a>
+      <a data-section="dealer">Dealer Perfomance</a>
+      <a data-section="custview">Cust View</a>
+      <a data-section="custflow">Cust Flow</a>
+      <a data-section="disc">Disc Effect</a>
+      <a data-section="stock">Carstock</a>
+      <a href="#Summary">Summary</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="main">
+    <div class="content">
+      <h1>Data Analytics & Statistics</h1>
+      <p>Visualize insights, track performance, and explore the trends shaping your automotive business.</p>
+      <button class="btn" onclick="location.href='report.html'">📊 Show Report</button>
+    </div>
+    <div class="illustration">
+      <img src="https://www.edureka.co/blog/wp-content/uploads/2018/12/Data-Analytics-What-is-Data-Analytics-Edureka-1.png" alt="Analytics" />
+    </div>
+  </div>
+
+  <!-- Stat Cards -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-number">672M</div>
+      <div class="stat-label">Total Sales</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">30</div>
+      <div class="stat-label">Companies</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">28</div>
+      <div class="stat-label">Dealers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">23906</div>
+      <div class="stat-label">Cars Sold</div>
+    </div>
+  </div>
+
+  <!-- Intro Text -->
+  <div class="intro-section" id="Summary">
+    <p>🚗 <strong>Explore our interactive Car Sales Dashboard</strong> for a complete view of sales performance across brands, body styles, regions, and customer segments.</p>
+    <p>📊 This report delivers real-time insights into total units sold, revenue generated, dealer performance, and customer preferences, enabling smarter decision-making.</p>
+    <p>🌎 Discover which manufacturers and models lead the market, how sales vary across time and region, and which body styles are in highest demand.</p>
+    <p>🧭 Filter the dashboard by Year, Month, Company, and Body Style to explore specific trends and patterns in vehicle sales dynamics.</p>
+    <p>💼 Ideal for manufacturers, dealerships, and analysts — this report helps track performance, identify growth opportunities, and align sales strategy with market trends.</p>
+    <p>📈 Featuring dynamic visuals, YoY growth analysis, regional breakdowns, and customer insights — all in one place.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Car Sales Dashboard | All Rights Reserved
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const sectionStats = {
+      overview: [
+        { value: "672M", label: "Total Sales" },
+        { value: "30", label: "Companies" },
+        { value: "28", label: "Dealers" },
+        { value: "23906", label: "Cars Sold" }
+      ],
+      sales: [
+        { value: "672M", label: "Total Revenue" },
+        { value: "28,090", label: "Average Price of car" },
+        { value: "23906", label: "Cars Sold" },
+        { value: "300M", label: "Same Period Last Year" }
+      ],
+      dealer: [
+        { value: "672M", label: "Total Sales" },
+        { value: "28", label: "Dealers" },
+        { value: "23906", label: "Cars Sold" },
+        { value: "854", label: "Avg. Cars per Dealer" }
+      ],
+      custview: [
+        { value: "672M", label: "Total Sales" },
+        { value: "3022", label: "New Customers" },
+        { value: "23906", label: "Cars Sold" },
+        { value: "831K", label: "Average Income" }
+      ],
+      custflow: [
+        { value: "672M", label: "Total Sales" },
+        { value: "23906", label: "Total Enquiries" },
+        { value: "2092", label: "Switched Company" },
+        { value: "9%", label: "Switch Rate" }
+      ],
+      disc: [
+        { value: "672M", label: "Total Sales" },
+        { value: "23906", label: "Cars Sold" },
+        { value: "7.5%", label: "Avg Discount" },
+        { value: "68%", label: "Sales Rate" }
+      ],
+      stock: [
+        { value: "27466", label: "Cars in Stock" },
+        { value: "23906", label: "Cars Sold" },
+        { value: "3560", label: "Unsold Cars" },
+        { value: "12.96%", label: "Deadstock Rate" }
+      ]
+    };
+
+    const statCards = document.querySelectorAll(".stat-card");
+    const navLinks = document.querySelectorAll(".menu a");
+    const summarySection = document.getElementById("Summary");
+
+    function animateCount(el, value) {
+      const isM = value.includes('M');
+      const isK = value.includes('K');
+      const isP = value.includes('%');
+
+      let num = parseFloat(value.replace(/[^0-9.]/g, ''));
+      let suffix = isM ? 'M' : isK ? 'K' : isP ? '%' : '';
+      let count = 0;
+      let step = num / 50;
+
+      const update = () => {
+        count += step;
+        if (count >= num) {
+          el.textContent = value;
+        } else {
+          el.textContent = Math.round(count) + suffix;
+          requestAnimationFrame(update);
+        }
+      };
+      update();
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        const section = link.getAttribute("data-section");
+        if (sectionStats[section]) {
+          e.preventDefault();
+          const stats = sectionStats[section];
+          statCards.forEach((card, i) => {
+            animateCount(card.querySelector(".stat-number"), stats[i].value);
+            card.querySelector(".stat-label").textContent = stats[i].label;
+          });
+        }
+
+        // Scroll to summary section if Summary is clicked
+        if (link.getAttribute("href") === "#Summary") {
+          e.preventDefault();
+          summarySection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
